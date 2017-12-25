@@ -26,12 +26,9 @@ const plugins = [,
       cssnext({warnForDuplicates: false}),
       cssnano(),
       url({
-        /*
         url: 'copy',
-        basePath: path.resolve('src'),
-        assetsPath: path.resolve('libs'),
-        */
-        url: 'inline'
+        basePath: path.resolve('src/password/styles'),
+        assetsPath: path.resolve('libs')
       }),
       cssModules({
         generateScopedName: '[local]__[hash:base64:5]'
@@ -44,13 +41,11 @@ const plugins = [,
     main: true,
     browser: true
   }),
-  commonjs({
-    // include: 'node_modules/**'
-  }),
+  commonjs(),
   babel({
     exclude: 'node_modules/**' // 仅仅转译我们的源码
   }),
-  // uglify()
+  uglify()
 ]
 
 module.exports = {
