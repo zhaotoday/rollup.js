@@ -2,22 +2,40 @@ const commonjs = require('rollup-plugin-commonjs')
 const babel = require('rollup-plugin-babel')
 const resolve = require('rollup-plugin-node-resolve')
 const uglify = require('rollup-plugin-uglify')
-
+const path = require('path')
 const postcss = require('rollup-plugin-postcss')
+const json = require('rollup-plugin-json')
 const simplevars = require('postcss-simple-vars')
 const nested = require('postcss-nested')
 const cssnext = require('postcss-cssnext')
 const cssnano = require('cssnano')
-
+const cssModules = require('postcss-modules')
+const url = require('postcss-url')
 const pkg = require('../../package.json')
 const external = Object.keys(pkg.dependencies)
-const plugins = [
+const plugins = [,
+  json({
+    include: 'src/**',
+    exclude: ['node_modules']
+  }),
   postcss({
     plugins: [
+      require('postcss-flexible')({remUnit: 75}),
       simplevars(),
       nested(),
       cssnext({warnForDuplicates: false}),
-      cssnano()
+      cssnano(),
+      url({
+        /*
+        url: 'copy',
+        basePath: path.resolve('src'),
+        assetsPath: path.resolve('libs'),
+        */
+        url: 'inline'
+      }),
+      cssModules({
+        generateScopedName: '[local]__[hash:base64:5]'
+      })
     ],
     extensions: ['.css']
   }),
@@ -26,11 +44,13 @@ const plugins = [
     main: true,
     browser: true
   }),
-  commonjs(),
+  commonjs({
+    // include: 'node_modules/**'
+  }),
   babel({
     exclude: 'node_modules/**' // 仅仅转译我们的源码
   }),
-  uglify()
+  // uglify()
 ]
 
 module.exports = {
