@@ -1,0 +1,2 @@
+!function(e,t){"object"==typeof exports&&"undefined"!=typeof module?module.exports=t():"function"==typeof define&&define.amd?define(t):e.storage=t()}(this,function(){"use strict";var e=window.localStorage;return{name:"storage",set:function(t,n){e.setItem(t,JSON.stringify(n))},get:function(t){return JSON.parse(e.getItem(t))||null},remove:function(t){e.removeItem(t)}}});
+//# sourceMappingURL=index.umd.js.map

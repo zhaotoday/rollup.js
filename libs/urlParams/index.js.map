@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sources":["../../src/urlParams/index.js"],"sourcesContent":["import qs from 'query-string'\r\n\r\nconst urlParams = qs.parse(window.location.search)\r\n\r\nexport default urlParams\r\n"],"names":["urlParams","qs","parse","window","location","search"],"mappings":"ybAEMA,UAAYC,GAAGC,MAAMC,OAAOC,SAASC"}
