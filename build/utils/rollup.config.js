@@ -16,7 +16,7 @@ const plugins = [,
       require('postcss-url')({
         url: 'copy',
         basePath: path.resolve('src/styles'),
-        assetsPath: path.resolve('libs')
+        assetsPath: path.resolve('dist/styles')
       }),
       require('postcss-modules')({
         generateScopedName: '[local]__[hash:base64:5]'
