@@ -1,5 +1,6 @@
 {
   "name": "apples",
+  "moduleName": "someModule",
   "version": "0.0.3",
   "description": "use rollup to develop a npm package",
   "main": "dist/index.cjs.js",

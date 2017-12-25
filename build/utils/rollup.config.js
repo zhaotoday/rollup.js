@@ -15,7 +15,7 @@ const plugins = [,
       require('cssnano')(),
       require('postcss-url')({
         url: 'copy',
-        basePath: path.resolve('src/password/styles'),
+        basePath: path.resolve('src/styles'),
         assetsPath: path.resolve('libs')
       }),
       require('postcss-modules')({

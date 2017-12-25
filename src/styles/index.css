@@ -1,0 +1,130 @@
+.hide {
+  display: none;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.keyboard {
+  font-size: rem(32px);
+  color: #333;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 1001;
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul,
+  li {
+    list-style: none;
+  }
+
+  .head {
+    position: relative;
+    height: rem(88px);
+    line-height: rem(88px);
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+  }
+
+  .close {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: rem(88px);
+    height: rem(88px);
+    background-image: url("/images/close.png");
+    background-size: rem(32px) rem(32px);
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .inputs {
+    display: flex;
+    margin: rem(40px) rem(20px) rem(40px) rem(21px);
+    justify-content: center;
+    height: rem(100px);
+
+    &.active {
+      li {
+        border: 1px solid #0090ff;
+      }
+    }
+
+    li {
+      flex: 1;
+      text-align: center;
+      border: 1px solid #ddd;
+      position: relative;
+      margin-left: -1px;
+
+      &:first-child {
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+      }
+
+      &:last-child {
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+      }
+
+      span {
+        display: inline-block;
+        vertical-align: middle;
+        height: rem(32px);
+      }
+
+      &::before {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 1%;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .keys {
+    border-collapse: collapse;
+    width: 100%;
+
+    tr {
+      td {
+        font-size: rem(28px);
+        border: #ccc solid 1px;
+        text-align: center;
+        height: rem(80px);
+        vertical-align: middle;
+      }
+
+      &:last-child {
+        td:first-child,
+        td:last-child {
+          background-color: #ddd;
+        }
+
+        td:last-child {
+          background-image: url("/images/delete.png");
+          background-size: rem(66px) rem(44px);
+          background-repeat: no-repeat;
+          background-position: center center;
+        }
+      }
+    }
+  }
+}
