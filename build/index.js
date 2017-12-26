@@ -13,17 +13,17 @@ const build = () => {
     // cjs 需要将依赖包申明为外部依赖
     rollup.rollup(Object.assign(
       // 公用配置
-      {entry: 'src/index.js', plugins, cache},
+      {input: 'src/index.js', plugins, cache},
       // cjs 独有配置
-      format === 'cjs' ? {external, globals} : null)
+      format === 'cjs' ? {external, output: globals} : null)
     ).then(bundle => {
       cache = bundle
 
       bundle.write({
         format,
-        sourceMap: true,
-        moduleName: pkg.moduleName,
-        dest: `dist/index${format === 'umd' ? '.umd' : ''}.js`
+        sourcemap: true,
+        name: pkg.moduleName,
+        file: `dist/index${format === 'umd' ? '.umd' : ''}.js`
       }).then(() => {
         notice.success(`The ${format} format package built successfully!`)
       })
