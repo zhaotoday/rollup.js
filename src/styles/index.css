@@ -48,7 +48,7 @@
     top: 0;
     width: rem(88px);
     height: rem(88px);
-    background-image: url("/images/close.png");
+    background-image: url("./images/close.png");
     background-size: rem(32px) rem(32px);
     background-repeat: no-repeat;
     background-position: center center;
@@ -119,7 +119,7 @@
         }
 
         td:last-child {
-          background-image: url("/images/delete.png");
+          background-image: url("./images/delete.png");
           background-size: rem(66px) rem(44px);
           background-repeat: no-repeat;
           background-position: center center;

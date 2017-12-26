@@ -25,7 +25,7 @@ const build = () => {
         moduleName: pkg.moduleName,
         dest: `dist/index${format === 'umd' ? '.umd' : ''}.js`
       }).then(() => {
-        notice.success(`The ${format} format built successfully!`)
+        notice.success(`The ${format} format package built successfully!`)
       })
     }).catch(notice.error)
   })

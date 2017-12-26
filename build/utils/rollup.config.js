@@ -1,4 +1,3 @@
-const path = require('path')
 const pkg = require('../../package.json')
 const external = Object.keys(pkg.dependencies)
 const plugins = [,
@@ -14,9 +13,7 @@ const plugins = [,
       require('postcss-cssnext')({warnForDuplicates: false}),
       require('cssnano')(),
       require('postcss-url')({
-        url: 'copy',
-        basePath: path.resolve('src/styles'),
-        assetsPath: path.resolve('dist/styles')
+        url: 'inline'
       }),
       require('postcss-modules')({
         generateScopedName: '[local]__[hash:base64:5]'
