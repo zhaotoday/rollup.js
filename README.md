@@ -1,14 +1,3 @@
-## 已包含的工具
-- helpers: [object] 辅助函数集合
-- I18N: [class] 基于 i18next 的国际化
-- time: [object] 格式化时间
-- storage: [object] 本地存储
-- REST: [class] 遵循 RESTful 规范的接口请求类
-- urlParams: [object] 获取 URL 参数
-
-## 脚手架简介
-Rollup.js 支持多入口的构建方案，用于多个 library 共存的情况，如工具库等。
-
 ## Rollup 介绍
 Rollup 是一个 JavaScript 模块打包器，可以将小块代码编译成大块复杂的代码，例如 library 或应用程序。
 
@@ -20,14 +9,11 @@ Rollup 是一个 JavaScript 模块打包器，可以将小块代码编译成大�
 
 ## 使用
 ```bash
-# 下载代码
-$ git clone https://github.com/zhaotoday/rollup.git
-
 # 开发、调试
-$ npm run dev myLibrary
+$ npm run dev
 
 # 构建代码
-$ npm run build myLibrary
+$ npm run build
 
 # 校验 JS
 $ npm run eslint
@@ -46,17 +32,9 @@ $ npm install --save my-package
 ```
 
 ```js
-// 引用 myLibrary
-import myLibrary from 'my-package/libs/myLibrary'
-
-// 调用 myLibrary 的方法
-myLibrary.someFunc()
+// 引用
+import myModule from 'my-package'
 ```
-
-## library 的命名规范
-- 请在 src 目录下新建并开发你的 library，如案例的 urlParams 文件夹，其中 index.js 为入口文件；
-- 如果暴露的是个类或构造函数，请用大驼峰命名法 (big camel-case)，如：MyClass、MyConstructor；
-- 其他，请用小驼峰命名法 (little camel-case)：如：myLibrary
 
 ## 相关包
 #### 1. rollup-watch
