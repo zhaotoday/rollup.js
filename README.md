@@ -65,3 +65,4 @@ npm install --save-dev rollup-plugin-postcss postcss-simple-vars postcss-nested 
   1. UMD 格式需要把依赖包打进目标文件；
   2. CommonJS 格式需要将依赖包申明为外部依赖。
 - 如果开发的是纯 JS 的 npm 包，请将 PostCSS 的相关插件去除（当然，保留着也无妨）。
+- 用 package.json 的 moduleName 字段定义你要暴露的类、构造函数或对象，如：MyClass、MyConstructor、myObject，未定义则默认取 package.json 的 name 字段的值。

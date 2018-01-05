@@ -22,7 +22,7 @@ const build = () => {
       bundle.write({
         format,
         sourcemap: true,
-        name: pkg.moduleName,
+        name: pkg.moduleName || pkg.name,
         file: `dist/index${format === 'umd' ? '.umd' : ''}.js`
       }).then(() => {
         notice.success(`The ${format} format package built successfully!`)
