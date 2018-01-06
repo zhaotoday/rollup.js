@@ -4,30 +4,30 @@ const watch = require('watch')
 const notice = require('./utils/notice')
 const pkg = require('../package.json')
 
-let cache
+let caches = {}
 
 const build = () => {
   // 按 umd、cjs 包格式构建
-  ['umd', 'cjs'].forEach((format) => {
-    // umd 需要把依赖包打进目标文件
-    // cjs 需要将依赖包申明为外部依赖
-    rollup.rollup(Object.assign(
+  // umd 需要把依赖包打进目标文件
+  // cjs 需要将依赖包申明为外部依赖
+  ['umd', 'cjs'].forEach(async format => {
+    const bundle = await rollup.rollup(Object.assign(
       // 公用配置
-      {input: 'src/index.js', plugins, cache},
+      {input: 'src/index.js', plugins, cache: caches[format]},
       // cjs 独有配置
       format === 'cjs' ? {external, output: globals} : null)
-    ).then(bundle => {
-      cache = bundle
+    )
 
-      bundle.write({
-        format,
-        sourcemap: true,
-        name: pkg.moduleName || pkg.name,
-        file: `dist/index${format === 'umd' ? '.umd' : ''}.js`
-      }).then(() => {
-        notice.success(`The ${format} format package built successfully!`)
-      })
-    }).catch(notice.error)
+    caches[format] = bundle
+
+    await bundle.write({
+      format,
+      sourcemap: true,
+      name: pkg.moduleName || pkg.name,
+      file: `dist/index${format === 'umd' ? '.umd' : ''}.js`
+    })
+
+    notice.success(`The ${format} format package built successfully!`)
   })
 }
 
