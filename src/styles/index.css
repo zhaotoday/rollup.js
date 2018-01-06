@@ -60,12 +60,6 @@
     justify-content: center;
     height: rem(100px);
 
-    &.active {
-      li {
-        border: 1px solid #0090ff;
-      }
-    }
-
     li {
       flex: 1;
       text-align: center;
@@ -95,6 +89,12 @@
         height: 100%;
         width: 1%;
         vertical-align: middle;
+      }
+    }
+
+    &.active {
+      li {
+        border: 1px solid #0090ff;
       }
     }
   }
