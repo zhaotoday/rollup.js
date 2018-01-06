@@ -3,6 +3,7 @@ Rollup 是一个 JavaScript 模块打包器，可以将小块代码编译成大�
 
 ## 链接
 - [Rollup.js 官网](http://rollup.org/)
+- [Rollup.js 中文官网](https://rollupjs.org/zh)
 - [Rollup.js 中文文档](https://rollup.bootcss.com/)
 - [Rollup 插件列表](https://github.com/rollup/rollup/wiki/Plugins)
 - [如何使用Rollup打包样式文件并添加LiveReload](http://www.w3cplus.com/javascript/learn-rollup-css.html)
